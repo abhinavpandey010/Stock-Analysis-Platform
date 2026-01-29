@@ -8,11 +8,13 @@ def create_app():
 
     db.init_app(app)
 
+    from app.models.ohlcv_model import OHLCV
+    
     # test route
-    from app.routes.test_db.routes import test_db_bp
+    from app.routes.test_db import test_db_bp
     app.register_blueprint(test_db_bp)
     
-    from app.routes.main.routes import main
+    from app.routes.home import main
     app.register_blueprint(main)
     
     return app
