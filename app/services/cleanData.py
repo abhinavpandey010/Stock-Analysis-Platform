@@ -4,7 +4,14 @@ import pandas as pd
 
 def clean_data(symbol_data,symbol):
         df = pd.DataFrame(symbol_data).T
-        df.columns = ["open", "high", "low", "close", "volume"]
+        df = df.rename(columns={
+    "1. open": "open",
+    "2. high": "high",
+    "3. low": "low",
+    "4. close": "close",
+    "5. volume": "volume"
+})
+
         df.index.name = 'date'
         df = df.reset_index()
         df["symbol"] = symbol
