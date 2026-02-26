@@ -17,4 +17,7 @@ def create_app():
     from app.routes.home import main
     app.register_blueprint(main)
     
+    from app.routes.ohlcv_routes import ohlcv_bp
+    app.register_blueprint(ohlcv_bp)
+    
     return app
